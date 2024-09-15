@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictive Maintenance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #606060;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+			font-family: Verdana;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #FFFFFF;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color:#FFFFFF;
+        }
+        input[type="text"] {
+            width: calc(100% - 22px); /* Adjusted for padding */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 3px solid #5F9EA0;
+            border-radius: 15px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+			background-color: #BEBEBE;
+			font-weight: bold;
+        }
+        input[type="text"]:focus {
+            border-color: #007bff;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            background-color: #5F9EA0;
+            color: #fff;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #ADD8E6;
+        }
+        .prediction {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #007bff;
+        }
+		.bold-text {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Predictive Maintenance</h1>
+        <form action="/predict" method="post">
+            <label for="air_temp"><b>Air Temperature:</b></label>
+            <input type="text" id="air_temp" name="Air temperature" value="{{ data.get('Air temperature', '') }}" placeholder="In Kelvin">
+
+            <label for="process_temp"><b>Process Temperature:</b></label>
+            <input type="text" id="process_temp" name="Process temperature" value="{{ data.get('Process temperature', '') }}" placeholder="In Kelvin">
+
+            <label for="rot_speed"><b>Rotational Speed:</b></label>
+            <input type="text" id="rot_speed" name="Rotational speed" value="{{ data.get('Rotational speed', '') }}" placeholder="Revolutions per minute(rpm)">
+
+            <label for="torque"><b>Torque:</b></label>
+            <input type="text" id="torque" name="Torque" value="{{ data.get('Torque', '') }}" placeholder="Newton-meters">
+
+            <label for="tool_wear"><b>Tool Wear:</b></label>
+            <input type="text" id="tool_wear" name="Tool wear" value="{{ data.get('Tool wear', '') }}" placeholder="Additional minutes, the tool can be used for">
+
+            <input type="submit" value="Predict" class="bold-text">
+        </form>
+        {% if prediction_text %}
+            <div class="prediction">
+                <h2>{{ prediction_text }}</h2>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
