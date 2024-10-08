@@ -108,6 +108,7 @@ Containerization with Docker allows us to package our predictive maintenance app
    - Launch a new EC2 instance with  Ubuntu Server 
 
 2. *Connect to the EC2 Instance*: 
+
    - Use SSH to connect to your EC2 instance from local machine.
    - Can find the public IP address of instance in the EC2 dashboard.
 
@@ -123,3 +124,9 @@ Containerization with Docker allows us to package our predictive maintenance app
 
 6. *Access the Application*: 
    - Once the Docker container is running on your EC2 instance, access Flask application through the public IP address or domain name of the instance.
+
+
+![WhatsApp Image 2024-10-08 at 7 02 05 PM](https://github.com/user-attachments/assets/db74e572-cb59-4ec4-a301-e709bf17462f)
+
+![WhatsApp Image 2024-10-08 at 7 02 05 PM (1)](https://github.com/user-attachments/assets/2a17e957-e4c2-446b-8e81-992d127cec78)
+
